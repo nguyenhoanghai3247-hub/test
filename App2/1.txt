@@ -1,0 +1,74 @@
+codeSnippet : {#include <Servo.h>
+#define trigPin 2
+#define echoPin 3
+Servo myservo; 
+
+long duration;
+int distance;
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  myservo.attach(7);
+  servo_drive(90);
+  Serial.begin(9600);
+
+}
+void servo_drive(uint8_t d)
+{
+   for(int i = 180; i>150;i--)
+  {
+    myservo.write(i);
+    delay(10);
+  }
+  for(int i = 150; i<180;i++)
+  {
+    myservo.write(i);
+    delay(20);
+  }
+
+}
+void loop() {
+
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(5);
+
+  // Trigger the sensor by setting the trigPin high for 10 microseconds:
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  // Read the echoPin, pulseIn() returns the duration (length of the pulse) in microseconds:
+  duration = pulseIn(echoPin, HIGH);
+  // Calculate the distance:
+  distance = duration * 0.034 / 2;
+
+  // Print the distance on the Serial Monitor (Ctrl+Shift+M):
+  Serial.print("Distance = ");
+  Serial.print(distance);
+  Serial.println(" cm");
+
+  if (distance < 5)
+    {
+      servo_drive(90);
+    }
+
+  delay(1000);
+  // put your main code here, to run repeatedly:
+
+}}
+
+
+description: {Hệ thống này được phát triển nhằm giải quyết vấn đề ô nhiễm vi nhựa trong nguồn nước và bảo vệ môi trường cũng như sức khỏe con người. Dự án này tập trung vào việc xây dựng một thiết bị làm sạch vi nhựa tự động hoạt động hoàn toàn bằng năng lượng mặt trời, sử dụng Arduino Nano để điều khiển cảm biến và cơ cấu chấp hành. Thiết bị này có thể đo lượng vi nhựa tích tụ trong nước thông qua cảm biến độ dày để phát hiện và loại bỏ chúng. Khi lượng vi nhựa vượt quá ngưỡng nhất định, động cơ servo sẽ tự động làm sạch bộ lọc. Ngoài ra, hệ thống cũng bao gồm thiết bị lưu trữ năng lượng để có thể duy trì hoạt động ngay cả khi ánh sáng mặt trời không đủ.}
+
+function: [Lọc và loại bỏ vi nhựa tự động, Hệ thống tự phát hoàn toàn chạy bằng năng lượng mặt trời, Trang bị thiết bị lưu trữ năng lượng tích hợp, Giám sát thông minh dựa trên Arduino Nano, Thiết kế nhỏ gọn, dễ lắp đặt]
+
+mainImage: {https://res.cloudinary.com/de8t7t3ij/image/upload/f_auto,q_auto,w_600/v1761484033/example_ntogpn.png}
+
+schemaImage: {https://res.cloudinary.com/de8t7t3ij/image/upload/f_auto,q_auto,w_600/v1761483948/codeexample_d3djuw.png}
+
+title: {Hệ thống lọc vi nhựa sử dụng năng lượng mặt trời}
+
+videoUrl: {https://www.youtube.com/embed/bYvSdhLTi0c}
+
+	

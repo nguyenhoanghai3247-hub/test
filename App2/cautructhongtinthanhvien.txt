@@ -1,0 +1,41 @@
+avatar
+contact_links (map): 
+	- email:
+	-facebook:
+	-tiktok:
+education (array):
+	[0] (map)
+		-major:
+		-school:
+		-year:
+email:
+experience (array):
+	[0] (map):
+		- company:
+		- description:
+		- year:
+	[1] (map):
+		-company:
+		-description:
+		-year:
+introduction: 
+major_projects (array):
+	[0] (map)
+		-name:
+		-description:
+name:
+phone
+roles (array):
+	[0]:
+	[1]:
+skills (map):
+	-hardware (array)
+	[0], [1], [2]....
+	-programming (array)....
+	-software (arrray)
+stats (map)
+	clients: 
+	experience:
+	projects:
+status: online/offline
+	

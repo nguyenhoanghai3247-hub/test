@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <title>TH LABS - Chi tiết dự án</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://res.cloudinary.com" />
+  </head>
+  <body>
+    <header id="home">
+      <nav
+        class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top navbar-scrolled"
+      >
+        <div class="container">
+          <a class="navbar-logo" href="index.html#home"
+            ><img
+              src="https://res.cloudinary.com/de8t7t3ij/image/upload/v1761191404/logo1_g1h1xf.png"
+              alt="Logo của TH LABS"
+              id="navbar-logo"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavbar"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#home">TRANG CHỦ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="index.html#project">DỰ ÁN</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#RESOURCES">TÀI NGUYÊN</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#contact">LIÊN HỆ</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section class="page-detail-section">
+      <div class="container">
+        <div class="row mb-4 align-items-center">
+          <div class="col-md-6">
+            <a href="index.html#project" class="btn btn-outline-dark btn-back">
+              <i class="fas fa-arrow-left me-2"></i> Quay lại
+            </a>
+          </div>
+          <div class="col-md-6 text-md-start">
+            <h2 class="page-detail-title" id="project-title">
+              Đang tải chi tiết dự án...
+            </h2>
+          </div>
+        </div>
+
+        <div class="row g-5">
+          <div class="col-lg-7">
+            <div class="detail-block">
+              <h5>Video Demo</h5>
+              <div
+                class="ratio ratio-16x9 rounded overflow-hidden shadow-sm"
+                id="project-video-container"
+              >
+                <p>Đang tải video...</p>
+              </div>
+            </div>
+
+            <div class="detail-block mt-4">
+              <h5>Hình ảnh sản phẩm</h5>
+              <img
+                id="project-image"
+                src="https://via.placeholder.com/600x400/E8E8E8/666?text=Đang+tải+ảnh..."
+                class="img-fluid rounded shadow-sm mb-2"
+                alt="Ảnh sản phẩm"
+              />
+            </div>
+
+            <div class="detail-block mt-4">
+              <h5>Sơ đồ nguyên lý / Thiết kế</h5>
+              <img
+                id="project-schema"
+                src="https://via.placeholder.com/600x400/E8E8E8/666?text=Đang+tải+ảnh..."
+                class="img-fluid rounded shadow-sm"
+                alt="Sơ đồ mạch"
+              />
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="detail-block">
+              <h5>Thông tin sản phẩm</h5>
+              <p id="project-description">Đang tải...</p>
+            </div>
+
+            <div class="detail-block mt-4">
+              <h5>Chức năng</h5>
+              <ul class="detail-list" id="project-features">
+                <li>Đang tải...</li>
+              </ul>
+            </div>
+
+            <div class="detail-block mt-4">
+              <h5>Code tham khảo</h5>
+              <pre
+                class="code-block"
+              ><code id="project-code">Đang tải code...</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="container my-5">
+      <div class="section-title text-center mb-5">
+        <h2>Liên hệ với chúng tôi</h2>
+      </div>
+      <div class="row gy-4">
+        <div class="col-lg-5">
+          <div class="contact-info-container">
+            <div class="contact-info-item">
+              <div class="info-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="info-text">
+                <h4>Địa chỉ:</h4>
+                <p>123 Đường ABC, Quận XYZ, TP. Hồ Chí Minh</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="info-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="info-text">
+                <h4>Email:</h4>
+                <p>contact@thlabs.com</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="info-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="info-text">
+                <h4>Điện thoại:</h4>
+                <p>(+84) 123 456 789</p>
+              </div>
+            </div>
+            <div class="social-links mt-4">
+              <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" title="TikTok"><i class="fab fa-tiktok"></i></a>
+              <a href="#" title="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <form class="contact-form">
+            <div class="row">
+              <div class="col-md-6 form-group mb-3">
+                <input
+                  type="text"
+                  name="name"
+                  class="form-control"
+                  placeholder="Tên của bạn"
+                  required
+                />
+              </div>
+              <div class="col-md-6 form-group mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  placeholder="Email của bạn"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                name="subject"
+                placeholder="Tiêu đề"
+                required
+              />
+            </div>
+            <div class="form-group mb-3">
+              <textarea
+                class="form-control"
+                name="message"
+                rows="5"
+                placeholder="Nội dung tin nhắn"
+                required
+              ></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-hero">Gửi tin nhắn</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+
+    <script>
+      // 1. CẤU HÌNH FIREBASE (Copy y hệt từ index.html)
+      const firebaseConfig = {
+        apiKey: "AIzaSyBZiK_bYvL1PfYfyT9jMkSPtddjx2uAqvs", // Thay bằng API Key của bạn
+        authDomain: "th-labs-website.firebaseapp.com",
+        projectId: "th-labs-website",
+        storageBucket: "th-labs-website.appspot.com",
+        messagingSenderId: "3693814701",
+        appId: "1:3693814701:web:27a37283532a4860a1f724",
+        measurementId: "G-GFVXHY6G9C",
+      };
+
+      // 2. KHỞI TẠO FIREBASE
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+
+      // 3. HÀM ĐỔ DỮ LIỆU VÀO TRANG
+      function populatePage(data) {
+        // Tiêu đề
+        document.getElementById("project-title").innerText =
+          data.title || "Không có tiêu đề";
+
+        // Thông tin sản phẩm
+        document.getElementById("project-description").innerText =
+          data.description || "Không có mô tả.";
+
+        // Video Demo (từ trường videoUrl)
+        if (data.videoUrl) {
+          document.getElementById("project-video-container").innerHTML = `
+            <iframe
+              src="${data.videoUrl}"
+              title="Video demo"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>`;
+        } else {
+          document.getElementById("project-video-container").innerHTML =
+            "<p>Không có video demo.</p>";
+        }
+
+        // Hình ảnh sản phẩm (từ trường mainImage)
+        if (data.mainImage) {
+          document.getElementById("project-image").src = data.mainImage;
+        }
+
+        // Sơ đồ nguyên lý (từ trường schemaImage)
+        if (data.schemaImage) {
+          document.getElementById("project-schema").src = data.schemaImage;
+        }
+
+        // Chức năng (từ trường function)
+        if (data.function && data.function.length > 0) {
+          const featuresHtml = data.function
+            .map(
+              (item) => `<li><i class="fas fa-check-circle"></i> ${item}</li>`
+            )
+            .join("");
+          document.getElementById("project-features").innerHTML = featuresHtml;
+        } else {
+          document.getElementById("project-features").innerHTML =
+            "<li>Không có thông tin chức năng.</li>";
+        }
+
+        // Code tham khảo (từ trường codeSnippet)
+        if (data.codeSnippet) {
+          // Dùng innerText để giữ nguyên định dạng và tránh lỗi HTML
+          document.getElementById("project-code").innerText = data.codeSnippet;
+        } else {
+          document.getElementById("project-code").innerText =
+            "// Không có code tham khảo.";
+        }
+      }
+
+      // 4. HÀM CHÍNH: TẢI DỮ LIỆU KHI TRANG MỞ
+      document.addEventListener("DOMContentLoaded", async () => {
+        try {
+          // Lấy tham số từ URL
+          const urlParams = new URLSearchParams(window.location.search);
+          const fullPath = urlParams.get("fullPath"); // Lấy đường dẫn đầy đủ
+          const projectId = urlParams.get("id"); // Lấy ID (cho trường hợp cũ/dự phòng)
+
+          let docRef; // Biến để lưu tham chiếu Firestore
+
+          if (fullPath) {
+            // Ưu tiên dùng fullPath nếu có
+            console.log("Đang tải từ đường dẫn:", fullPath);
+            docRef = db.doc(fullPath); // Tạo tham chiếu từ đường dẫn đầy đủ
+          } else if (projectId) {
+            // Nếu không có fullPath, thử dùng id (cho các dự án cấp cao nhất)
+            console.log("Đang tải từ collection 'projects' với ID:", projectId);
+            docRef = db.collection("projects").doc(projectId);
+          } else {
+            // Nếu không có cả hai
+            document.getElementById("project-title").innerText =
+              "Lỗi: Không tìm thấy ID hoặc đường dẫn dự án trong URL.";
+            return;
+          }
+
+          // Tải document từ Firestore bằng tham chiếu đã xác định
+          const doc = await docRef.get();
+
+          if (doc.exists) {
+            // Nếu tìm thấy, đổ dữ liệu
+            populatePage(doc.data());
+          } else {
+            document.getElementById("project-title").innerText =
+              "Lỗi: Không tìm thấy dự án tại đường dẫn được cung cấp.";
+            console.error("Không tìm thấy document tại:", docRef.path);
+          }
+        } catch (error) {
+          console.error("Lỗi khi tải dự án: ", error);
+          document.getElementById("project-title").innerText =
+            "Đã xảy ra lỗi khi tải dữ liệu.";
+        }
+
+        // 5. CHẠY CÁC SCRIPT PHỤ (Navbar, Preloader)
+        setupNavbarScrollEffect();
+        hidePreloader();
+      });
+
+      // 6. CÁC HÀM PHỤ (Copy từ script.js)
+      function setupNavbarScrollEffect() {
+        const navbar = document.querySelector(".navbar");
+        if (!navbar) return;
+        navbar.classList.add("navbar-scrolled"); // Luôn hiển thị
+      }
+
+      function hidePreloader() {
+        // Trang này không có preloader, nhưng nếu bạn muốn thêm,
+        // hãy copy preloader HTML từ index.html
+      }
+      defer;
+    </script>
+  </body>
+</html>

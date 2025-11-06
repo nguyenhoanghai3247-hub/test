@@ -1,0 +1,1023 @@
+html {
+  font-size: 13px; /* Giảm kích thước font gốc từ 16px (mặc định) xuống 15px */
+}
+/* --- Sử dụng biến để dễ dàng thay đổi màu sắc --- */
+:root {
+  --primary-dark: #4c00ff; /* Màu nền chính cho header */
+  --accent-color: #4c00ff; /* Màu nhấn cho hover và link active */
+  --text-color: rgb(4, 155, 255); /* Màu chữ mặc định */
+  --text-hover-color: #01f8a6; /* Màu chữ khi hover */
+}
+
+body {
+  font-family: "Montserrat", sans-serif; /* Áp dụng font chữ cho toàn trang */
+}
+
+/* --- Chỉnh sửa chung cho Navbar --- */
+.navbar.bg-dark {
+  background-color: transparent !important; /* Ghi đè màu nền mặc định */
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  transition: background-color 0.5s ease, backdrop-filter 0.5s ease; /* Hiệu ứng chuyển đổi mượt mà */
+}
+/* Thêm một class mới để áp dụng hiệu ứng "kính mờ" khi cuộn chuột */
+.navbar-scrolled {
+  background-color: rgba(25, 25, 25, 0.5) !important; /* Nền mờ màu tối */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Hỗ trợ trình duyệt Safari */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* --- CSS CHO LOGO HÌNH ẢNH TRÊN NAVBAR --- */
+#navbar-logo {
+  height: 100px; /* Điều chỉnh chiều cao của logo tại đây */
+  width: auto; /* Chiều rộng sẽ tự động thay đổi theo tỷ lệ */
+  transition: height 0.3s ease;
+}
+
+/* --- Chỉnh sửa cho các Link điều hướng --- */
+.nav-link {
+  color: var(--text-color) !important;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.5rem 1rem !important;
+  position: relative; /* Cần cho hiệu ứng gạch chân */
+  transition: color 0.3s ease-in-out;
+}
+
+/* --- Hiệu ứng khi di chuột vào Link --- */
+.nav-link:hover {
+  color: var(--text-hover-color) !important;
+}
+
+/* Tạo gạch chân giả bằng pseudo-element ::after */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0; /* Ban đầu ẩn gạch chân */
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease-in-out;
+}
+
+/* Khi hover, gạch chân sẽ hiện ra */
+.nav-link:hover::after {
+  width: 80%;
+}
+
+/* --- Chỉnh sửa cho Link đang active (trang hiện tại) --- */
+.nav-item .nav-link.active {
+  color: var(--accent-color) !important;
+  font-weight: 700;
+}
+
+/* Gạch chân của link active luôn hiển thị */
+.nav-item .nav-link.active::after {
+  width: 80%;
+}
+/* --- Vùng Welcome (Hero Section) - Cập nhật cho bố cục 2 cột --- */
+.hero-section {
+  position: relative;
+  height: auto;
+  min-height: 60vh; /* Đảm bảo chiều cao tối thiểu */
+  padding: 10rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.hero-section .lead {
+  color: #ffffff;
+  font-size: medium;
+}
+
+/* Định dạng cho video nền */
+#hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Căn video ra giữa */
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1; /* Đưa video xuống lớp dưới cùng */
+}
+
+/* Đảm bảo lớp phủ tối nằm trên video nhưng dưới nội dung */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.2
+  ); /* Tăng độ tối của lớp phủ lên một chút */
+  z-index: 0;
+}
+
+/* Đảm bảo nội dung nằm trên lớp phủ tối */
+.hero-section .container {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+/* --- Nút Kêu gọi hành động (Call-to-Action) - PHIÊN BẢN CẢI TIẾN --- */
+
+/* Trạng thái mặc định của nút: Nền trong suốt, viền và chữ có màu */
+.btn-hero {
+  background-color: transparent;
+  color: var(--accent-color); /* Chữ màu xanh */
+  border: 2px solid var(--accent-color); /* Viền màu xanh */
+  padding: 0.8rem 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Thêm bóng mờ để nổi bật hơn */
+}
+
+/* Khi di chuột vào: Nền được tô đầy, chữ chuyển sang màu trắng */
+.btn-hero:hover {
+  background-color: var(--accent-color); /* Nền màu xanh */
+  color: #fff; /* Chữ màu trắng */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 170, 255, 0.3); /* Bóng mờ màu xanh khi hover */
+}
+/* --- CSS MỚI CHO SWIPER CAROUSEL --- */
+
+/* Đặt kích thước cho Swiper container */
+.team-swiper {
+  width: 100%;
+  padding-top: 80px;
+  padding-bottom: 50px;
+}
+
+/* Định dạng cho mỗi slide */
+.team-swiper .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px; /* Chiều rộng của slide ở giữa */
+  height: 400px; /* Chiều cao của slide ở giữa */
+  filter: blur(2px); /* Làm mờ các slide ở bên */
+  transition: filter 1s ease;
+  padding-bottom: 10px;
+}
+
+/* Slide active (ở giữa) sẽ rõ nét */
+.team-swiper .swiper-slide-active {
+  filter: blur(0px);
+}
+
+/* --- CSS MỚI CHO THẺ THÔNG TIN NHÂN SỰ NÂNG CAO (PHIÊN BẢN CẢI TIẾN) --- */
+.team-card {
+  /* Hiệu ứng Glassmorphism */
+  background: rgba(40, 40, 40, 0.6); /* Nền mờ */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Hỗ trợ Safari */
+
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  padding: 1.5rem; /* Giảm padding để có thêm không gian */
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Thêm hiệu ứng di chuột */
+}
+
+/* Thêm hiệu ứng nhấc thẻ lên khi hover */
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
+}
+
+.team-card .avatar-container {
+  position: relative;
+  width: 100px; /* Giảm kích thước avatar một chút */
+  height: 110px;
+  margin-bottom: 1rem; /* Điều chỉnh khoảng cách */
+}
+
+.team-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 100%;
+  /* Tạo viền gradient nổi bật */
+  border: 4px solid transparent;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.8)
+    ),
+    linear-gradient(90deg, var(--accent-color), #00c4ff, #c707d8);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+/* Dấu chấm trạng thái online */
+.team-card .status-indicator {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 18px; /* Điều chỉnh kích thước */
+  height: 18px;
+  background-color: #28a745;
+  border-radius: 50%;
+  border: 3px solid #282828; /* Nền tối hơn để nổi bật */
+}
+
+.team-card .member-name {
+  font-size: 1.4rem; /* Điều chỉnh kích thước chữ */
+  font-weight: bold;
+  color: #ffffff; /* Cho màu trắng để dễ đọc hơn */
+  margin-bottom: 0.25rem;
+}
+
+.team-card .member-roles {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8); /* Tăng độ sáng cho dễ đọc */
+  min-height: 10%;
+  margin-bottom: 20%;
+}
+
+/* --- PHẦN SỬA LỖI QUAN TRỌNG NHẤT --- */
+.team-card .member-stats {
+  display: flex;
+  justify-content: space-between; /* Sửa từ space-around thành space-between */
+  width: 100%;
+  padding: 0.75rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 1.5%; /* Tăng khoảng cách với nút */
+}
+
+.team-card .stat-item {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 40%; /* Phân bổ không gian cho mỗi item */
+}
+
+.team-card .stat-number {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.team-card .stat-label {
+  font-size: 0.2rem;
+  color: #ccc;
+  text-transform: uppercase; /* In hoa để trông chuyên nghiệp hơn */
+  letter-spacing: 0.5px;
+}
+
+.btn-profile {
+  background: linear-gradient(90deg, var(--accent-color), #00c4ff);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 5% 5%; /* Điều chỉnh padding */
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-decoration: none;
+  letter-spacing: 0.5px; /* Thêm khoảng cách chữ */
+}
+
+.btn-profile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 170, 255, 0.4);
+  color: #fff;
+}
+/* --- CSS CHO PROFILE MODAL (PHIÊN BẢN SÁNG) --- */
+
+#profileModal .modal-content {
+  background-color: #ffffff; /* Nền trắng */
+  color: #333333; /* Chữ màu đen/xám đậm */
+  border: none; /* Bỏ viền cũ */
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* Thêm bóng mờ */
+}
+
+#profileModal .modal-header {
+  border-bottom: 1px solid #dee2e6; /* Viền mờ màu xám nhạt */
+}
+
+/* Đổi màu nút X (từ trắng sang đen) */
+#profileModal .btn-close {
+  /* Dùng filter để đảo màu SVG từ trắng sang đen */
+  filter: invert(1) grayscale(100%) brightness(0%);
+}
+
+/* Ẩn thanh cuộn (từ câu hỏi trước) */
+#profileModal .modal-body {
+  padding: 2rem;
+  scrollbar-width: none; /* Cho Firefox */
+  -ms-overflow-style: none; /* Cho IE/Edge (cũ) */
+}
+
+#profileModal .modal-body::-webkit-scrollbar {
+  display: none; /* Cho Chrome, Safari */
+}
+
+/* Tiêu đề section (Màu tím/xanh của bạn vẫn nổi bật trên nền trắng) */
+.profile-section h5 {
+  color: var(--primary-dark); /* Giữ màu xanh của navbar */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  border-left: 3px solid var(--accent-color); /* Giữ viền màu xanh */
+  padding-left: 10px;
+}
+
+/* Thẻ kỹ năng */
+.profile-skill-tag {
+  display: inline-block;
+  background-color: #e9ecef; /* Nền xám nhạt (Bootstrap) */
+  color: #495057; /* Chữ xám đậm */
+  padding: 5px 12px;
+  margin: 4px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* Mục kinh nghiệm */
+.profile-experience-item {
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+  border-left: 2px solid #dee2e6; /* Viền xám nhạt */
+}
+.profile-experience-item h6 {
+  font-weight: bold;
+  color: #212529; /* Chữ đen */
+}
+.profile-experience-item .text-muted {
+  color: #6c757d !important; /* Chữ xám tiêu chuẩn */
+}
+
+/* Link liên hệ (Icon) */
+.profile-contact-links a {
+  font-size: 1.5rem;
+  color: #555; /* Icon màu xám đậm */
+  margin-right: 1rem;
+  transition: color 0.3s ease;
+}
+.profile-contact-links a:hover {
+  color: var(--accent-color); /* Giữ nguyên hiệu ứng hover */
+}
+/* --- CSS TÙY CHỈNH CHO NÚT ĐIỀU HƯỚNG SWIPER --- */
+
+/* Thay đổi màu sắc và kích thước mũi tên mặc định */
+.team-swiper .swiper-button-prev,
+.team-swiper .swiper-button-next {
+  --swiper-navigation-color: #ffffff; /* Màu mũi tên */
+  --swiper-navigation-size: 18px; /* Kích thước mũi tên */
+}
+
+/* Tạo nền tròn cho nút */
+.team-swiper .swiper-button-prev,
+.team-swiper .swiper-button-next {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1); /* Nền mờ */
+  border-radius: 50%;
+  backdrop-filter: blur(5px);
+  transition: background-color 0.3s ease;
+  /* Di chuyển nút xuống dưới */
+  top: auto;
+  bottom: 0; /* Khoảng cách từ đáy */
+}
+
+/* Hiệu ứng khi di chuột vào */
+.team-swiper .swiper-button-prev:hover,
+.team-swiper .swiper-button-next:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Căn chỉnh lại vị trí của nút so với lề (tùy chọn) */
+.team-swiper .swiper-button-prev {
+  left: calc(50% - 80px); /* Cách tâm 80px về bên trái */
+}
+.team-swiper .swiper-button-next {
+  right: calc(50% - 80px); /* Cách tâm 80px về bên trái */
+}
+/* --- CSS CHO HIỆU ỨNG VIDEO TEXT TƯƠNG TÁC --- */
+.video-text {
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: left;
+
+  /* Nền là một gradient tròn, vị trí được điều khiển bởi biến JavaScript */
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    #ff00c1,
+    #9a00ff 40%,
+    #0095ff 80%
+  );
+  background-size: 200% 200%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Thêm transition để hiệu ứng di chuyển mượt mà */
+  transition: background-position 0.3s ease-out;
+}
+/* --- CSS CHO PHẦN DỰ ÁN (GIAO DIỆN SÁNG) --- */
+
+/* Thay đổi màu nền cho section và màu chữ mặc định */
+#project {
+  background-color: #ffffff; /* Nền màu xám rất nhạt (thay vì màu tối) */
+  color: #000000; /* Chữ màu xám đậm */
+}
+
+/* Định dạng cho tiêu đề section */
+.section-title h2 {
+  color: #212529; /* Chữ màu đen */
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+/* Tạo gạch chân trang trí cho tiêu đề */
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: var(--primary-dark);
+}
+
+/* Định dạng cho thẻ dự án */
+.project-card {
+  background-color: #e6e5e5; /* Nền thẻ màu trắng */
+  padding: 2rem;
+  border-radius: 15px;
+  border: 1px solid #ebebeb; /* Viền màu xám nhạt */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.05); /* Thêm bóng mờ nhẹ */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hiệu ứng khi di chuột vào thẻ */
+.project-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary-dark);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Tăng độ đậm của bóng mờ */
+}
+
+/* Định dạng icon (giữ nguyên, màu xanh vẫn nổi bật) */
+.project-card .card-icon {
+  font-size: 2.5rem;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+
+/* Định dạng tiêu đề thẻ */
+.project-card .card-title {
+  color: #212529; /* Chữ màu đen */
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Định dạng mô tả (sẽ kế thừa màu #495057 từ #project) */
+.project-card .card-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+/* Vùng chứa các tag */
+.project-card .card-tags {
+  margin-top: 1.5rem;
+}
+
+/* Định dạng cho mỗi tag */
+.project-card .card-tags span {
+  display: inline-block;
+  background-color: var(--primary-dark); /* Nền tag màu xám nhạt */
+  color: #fdfeff; /* Chữ tag màu xám đậm */
+  font-size: 0.8rem;
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+/* --- CSS CHO PHẦN LIÊN HỆ --- */
+#contact {
+  color: #495057; /* Chữ màu xám đậm */
+}
+
+.contact-info-container {
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  height: 100%;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.contact-info-item .info-icon {
+  font-size: 1.5rem;
+  color: var(--primary-dark);
+  width: 50px;
+  height: 50px;
+  background-color: #e9f9fc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0; /* Ngăn icon bị co lại */
+}
+
+.contact-info-item .info-text {
+  margin-left: 1rem;
+}
+
+.contact-info-item h4 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #212529;
+  margin-bottom: 5px;
+}
+
+.contact-info-item p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+}
+
+.social-links a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: #e9ecef;
+  border-radius: 50%;
+  color: #495057;
+  margin-right: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.social-links a:hover {
+  background-color: var(--primary-dark);
+  color: #fff;
+}
+
+/* Định dạng Form liên hệ */
+.contact-form {
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  height: 100%;
+}
+
+.contact-form .form-control {
+  border-radius: 10px;
+  border-color: #dee2e6;
+  padding: 0.8rem 1rem;
+}
+
+.contact-form .form-control:focus {
+  border-color: var(--primary-dark);
+  box-shadow: 0 0 0 0.25rem rgba(14, 212, 247, 0.25);
+}
+
+.contact-form button[type="submit"] {
+  padding: 0.8rem 2.5rem;
+}
+/*
+/*
+================================================
+--- CSS MỚI CHO PROJECT DETAIL MODAL (Layout Mockup) ---
+================================================
+*/
+
+/* Ghi đè modal mặc định */
+#projectDetailModal .modal-content {
+  background-color: #ffffff;
+  color: #333;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+
+  /* MỚI: Thêm position: relative để định vị các nút */
+  position: relative;
+}
+
+/* Ẩn header Bootstrap (vì ta có nút X riêng) */
+#projectDetailModal .modal-header {
+  display: none;
+}
+
+/* Tùy chỉnh body: class "modal-dialog-scrollable" sẽ tự động
+   làm cho nó cuộn. Chúng ta chỉ cần padding. */
+#projectDetailModal .modal-body {
+  padding: 2.5rem;
+
+  /* Ẩn scrollbar (tùy chọn, từ lần trước) */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+/* Ẩn scrollbar cho WebKit */
+#projectDetailModal .modal-body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Nút đóng "X" tùy chỉnh */
+.btn-close-modal-custom {
+  position: absolute; /* Sẽ định vị so với .modal-content */
+  top: 1.5rem;
+  right: 1.5rem;
+  background-color: #6a38d2;
+  border-radius: 50%;
+  padding: 0.5rem;
+  opacity: 1;
+  z-index: 20; /* Nằm trên cùng */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
+  box-shadow: 0 4px 10px rgba(106, 56, 210, 0.3);
+  transition: transform 0.2s ease;
+}
+.btn-close-modal-custom:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* Nút liên hệ */
+.btn-modal-contact {
+  /* MỚI: Thêm định vị */
+  position: absolute; /* Sẽ định vị so với .modal-content */
+  bottom: 2.5rem;
+  right: 2.5rem;
+  z-index: 10;
+
+  /* Style cũ (giữ nguyên) */
+  background-color: #6a38d2;
+  border-color: #6a38d2;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+}
+.btn-modal-contact:hover {
+  background-color: #582db0;
+  border-color: #582db0;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(106, 56, 210, 0.4);
+}
+
+/* PHẦN CÒN LẠI (NỘI DUNG BÊN TRONG MODAL-BODY) */
+/* Tất cả các style này đều giữ nguyên như cũ */
+
+.project-modal-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 0.5rem;
+}
+.project-modal-tag {
+  display: inline-block;
+  background-color: #6a38d2;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 5px 15px;
+  border-radius: 20px;
+  margin-right: 8px;
+  margin-bottom: 5px;
+}
+/* Tùy chỉnh cho thẻ tag KHI NÓ LÀ LINK <a> */
+a.project-modal-tag {
+  text-decoration: none; /* Bỏ gạch chân */
+  color: #fff; /* Đảm bảo chữ vẫn màu trắng */
+  transition: all 0.2s ease;
+}
+
+a.project-modal-tag:hover {
+  transform: translateY(-2px); /* Hiệu ứng nhấc lên khi hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.project-image-swiper {
+  width: 100%;
+  border-radius: 10px;
+}
+.project-image-swiper img {
+  width: 100%;
+  /* SỬA: Chiều cao 20% là quá nhỏ, đổi thành 350px */
+  height: 350px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+.project-image-pagination {
+  position: relative;
+  margin-top: 15px;
+  bottom: auto;
+}
+.project-image-pagination .swiper-pagination-bullet {
+  background-color: #ccc;
+  opacity: 1;
+}
+.project-image-pagination .swiper-pagination-bullet-active {
+  background-color: #6a38d2;
+}
+.project-modal-section {
+  margin-bottom: 1.2rem;
+}
+.project-modal-section h6 {
+  font-weight: 700;
+  color: #212529;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.75rem;
+}
+.project-modal-section p,
+.project-modal-list {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+.project-modal-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+.project-modal-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+}
+.project-modal-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #6a38d2;
+  font-weight: bold;
+}
+
+/* XÓA: Các class cũ không còn cần thiết */
+.project-modal-content,
+.project-modal-footer-sticky {
+  /* Xóa mọi style cũ bên trong */
+  position: static;
+  display: block;
+}
+/* ---- Bố cục Lưới Tài nguyên ---- */
+.section-title {
+  text-align: center; /* Căn giữa toàn bộ khối */
+  margin-top: 3rem; /* Khoảng cách với nội dung bên trên */
+  margin-bottom: 3rem; /* Khoảng cách với lưới tài nguyên bên dưới */
+}
+
+.section-title h2 {
+  font-size: 2.25rem; /* Cỡ chữ ~36px, bạn có thể điều chỉnh */
+  font-weight: 700; /* Độ đậm */
+  color: #333; /* Màu chữ đen đậm */
+  display: inline-block; /* Giúp cho khối chỉ rộng bằng nội dung chữ */
+  position: relative; /* Quan trọng để định vị gạch chân */
+  padding-bottom: 0.75rem; /* Khoảng trống giữa chữ và gạch chân */
+
+  margin: 0; /* Xóa margin mặc định của thẻ h2 */
+}
+
+/* Đây là phần ma thuật tạo ra gạch chân: */
+.section-title h2::after {
+  content: ""; /* Bắt buộc phải có cho pseudo-element */
+  position: absolute; /* Định vị tuyệt đối so với thẻ h2 */
+  display: block;
+
+  width: 80px; /* Chiều rộng của gạch chân */
+  height: 4px; /* Độ dày của gạch chân */
+
+  /* MÀU TÍM - Bạn hãy đổi màu này cho khớp với web của bạn */
+  /* Thử dùng màu này, nó khá giống với icon của bạn: #6C63FF */
+  background-color: #6c63ff;
+
+  border-radius: 2px; /* Bo góc nhẹ cho gạch chân */
+
+  /* Căn giữa gạch chân tuyệt đối */
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/* 0. Một lớp container để giữ nội dung không bị tràn ra cạnh màn hình */
+.container {
+  max-width: 1200px;
+  margin: 0 auto; /* Căn giữa container */
+  padding: 0 1.5rem; /* 1.5rem = 24px */
+}
+
+/* 1. Thiết lập Lưới (Grid) */
+.resource-grid {
+  display: grid;
+  /* * Đây là phần quan trọng nhất:
+     * - auto-fit: Tự động lấp đầy hàng với càng nhiều cột càng tốt.
+     * - minmax(320px, 1fr): Mỗi cột có chiều rộng tối thiểu là 320px 
+     * và tối đa là 1 phần (1fr), chúng sẽ chia đều không gian còn lại.
+     * => Tự động responsive mà không cần media query!
+     */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem; /* Khoảng cách giữa các thẻ (2rem = 32px) */
+  padding-top: 2rem; /* Khoảng cách với tiêu đề "Tài nguyên..." */
+}
+
+/* ---- Định dạng Thẻ (Card) ---- */
+
+/* 2. Toàn bộ thẻ */
+.resource-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden; /* Đảm bảo ảnh bo góc theo thẻ */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resource-card:hover {
+  transform: translateY(-5px); /* Hiệu ứng nhấc lên khi hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* 3. Hình ảnh của thẻ */
+.card-image img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover; /* Đảm bảo ảnh lấp đầy mà không bị méo */
+  display: block;
+}
+
+/* 4. Nội dung bên trong thẻ */
+.card-content {
+  padding: 1.5rem; /* 24px */
+}
+
+/* 5. Danh mục (Bài viết, Video...) */
+.card-category {
+  display: inline-block;
+  font-size: 0.8rem; /* 12.8px */
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+/* 6. Tiêu đề thẻ */
+.card-title {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.card-title a {
+  text-decoration: none;
+  color: #222;
+  transition: color 0.3s ease;
+}
+
+.card-title a:hover {
+  color: #007bff; /* Thay bằng màu chủ đạo của bạn */
+}
+
+/* 7. Mô tả ngắn */
+.card-description {
+  font-size: 0.95rem; /* 15.2px */
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* 8. Nút bấm (Call-to-action) */
+.card-button {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #ffffff;
+  background-color: #007bff; /* Thay bằng màu chủ đạo của bạn */
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.card-button:hover {
+  background-color: #0056b3; /* Màu đậm hơn khi hover */
+}
+/*
+================================================
+--- CSS CHO TRANG CHI TIẾT DỰ ÁN (Project Detail Page) ---
+================================================
+*/
+
+/* Vùng nội dung chính */
+.page-detail-section {
+  padding-top: 160px; /* Khoảng cách với header */
+  padding-bottom: 5%;
+  background-color: #f8f9fa; /* Nền xám nhạt cho toàn trang */
+}
+
+/* Tiêu đề trang */
+.page-detail-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+}
+
+/* Nút quay lại */
+.btn-back {
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.btn-back:hover {
+  background-color: #343a40;
+  color: #fff;
+}
+
+/* Khối nội dung (video, ảnh, text) */
+.detail-block {
+  background-color: #ffffff;
+  padding: 5%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.detail-block h5 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--primary-dark); /* Dùng màu tím của bạn */
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.detail-block p {
+  line-height: 1.7;
+  color: #555;
+}
+
+/* Danh sách chức năng */
+.detail-list {
+  list-style-type: none;
+  padding-left: 0;
+  color: #333;
+}
+
+.detail-list li {
+  position: relative;
+  padding-left: 30px; /* Khoảng trống cho icon */
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.detail-list li i {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  color: #007bff; /* Màu xanh cho icon */
+  font-size: 1.1rem;
+}
+
+/* Khối hiển thị code */
+.code-block {
+  background-color: #282c34; /* Nền tối cho code */
+  color: #abb2bf; /* Màu chữ sáng */
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto; /* Cho phép cuộn ngang nếu code quá dài */
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9rem;
+  max-height: auto; /* Giới hạn chiều cao và cho phép cuộn */
+}
+
+/* Sửa lỗi ký tự HTML trong code */
+.code-block code {
+  white-space: pre-wrap; /* Giữ nguyên các thẻ <pre> */
+}
